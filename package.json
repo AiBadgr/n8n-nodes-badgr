@@ -1,0 +1,28 @@
+{
+  "name": "n8n-nodes-badgr",
+  "version": "0.1.0",
+  "description": "n8n community node for Badgr: run GPU workloads, deploy models and check results from a workflow",
+  "keywords": ["n8n-community-node-package", "badgr", "gpu", "ai", "llm", "inference"],
+  "license": "MIT",
+  "homepage": "https://aibadgr.com",
+  "author": { "name": "Badgr", "email": "support@aibadgr.com" },
+  "repository": { "type": "git", "url": "https://github.com/AiBadgr/n8n-nodes-badgr.git" },
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node scripts/copy-assets.mjs",
+    "test": "vitest run"
+  },
+  "files": ["dist"],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": ["dist/credentials/BadgrApi.credentials.js"],
+    "nodes": ["dist/nodes/Badgr/Badgr.node.js"]
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "n8n-workflow": "^1.82.0",
+    "typescript": "^5.6.0",
+    "vitest": "^4.1.9"
+  },
+  "peerDependencies": { "n8n-workflow": "*" }
+}
